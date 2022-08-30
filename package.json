@@ -4,7 +4,9 @@
   "description": "backend of ed, edd, n eddy api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,10 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jest": "^29.0.1",
+    "pg": "^8.8.0",
+    "sequelize": "^6.21.4",
+    "sequelize-cli": "^6.4.1",
+    "sqlite3": "^5.0.11",
     "supertest": "^6.2.4"
   }
 }
