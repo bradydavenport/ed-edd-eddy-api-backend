@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest --verbose --coverage",
-    "test-watch": "jest --watchAll --verbose --coverage"
+    "test-watch": "jest --watchAll --verbose --coverage",
+    "db:config": "sequelize init:config",
+    "db:create": "sequelize db:create"
   },
   "repository": {
     "type": "git",
