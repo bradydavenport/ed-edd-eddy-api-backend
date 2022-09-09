@@ -1,23 +1,27 @@
 'use strict';
 
-require('dotenv').config();
 const express = require('express');
-const getCharacters = require('./routes/characters')
+const app = express();
+require('dotenv').config();
+const logger = require('./middleware/logger');
+const getCharacters = require('./routes/characters');
 const notFound = require('./error-handlers/404');
 const errorHandler = require('./error-handlers/500');
-
-const app = express();
-const PORT = process.env.PORT || 3002;
-app.use(express.json);
+const PORT = process.env.PORT || 3003;
+app.use(logger);
 
 app.get('/', (req, res) => {
-  res.send('Thanks for visiting the \"Ed, Edd, n Eddy\" API! The site is under construction')
+  res.status(200).send('Thanks for visiting the "Ed, Edd, n Eddy" API! The site is under construction');
 });
-app.get('/api/characters', getCharacters);
+app.use(getCharacters);
 app.get('*', notFound);
 app.use(errorHandler);
 
+function start() {
+  app.listen(PORT, () => console.log(`listening on port ${PORT}`));
+}
+
 module.exports = {
-  server: app,
-  start: () => app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
+  app,
+  start,
 };
