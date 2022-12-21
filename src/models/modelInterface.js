@@ -35,12 +35,19 @@ class modelInterface {
     }
   }
 
-  async update() {
+  async update(id) {
 
   }
 
-  async delete() {
-
+  async delete(id) {
+    try {
+      let row = await this.model.destroy({ where: { id } });
+      return row;
+    }
+    catch (e) {
+      console.error(e);
+      return e;
+    }
   }
 
 }
