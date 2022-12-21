@@ -13,10 +13,11 @@ router.get('/api/characters', async (req, res, next) => {
   }
 });
 
-// need to 
-router.get('/api/characters/:id', (req, res, next) => {
+router.get('/api/characters/:id', async (req, res, next) => {
+  const { id } = req.params;
   try {
-    res.status(200).send('character');
+    let selectedCharacter = await characterInterface.readOne(id);
+    res.status(200).send(selectedCharacter);
   } catch (e) {
     res.status(500).send(e.message);
   }
@@ -29,6 +30,17 @@ router.post('/api/characters', async (req, res, next) => {
     console.log('response: ', response);
     res.status(200).send(response);
   } catch (e) {
+    res.status(500).send(e.message);
+  }
+});
+
+router.delete('/api/characters/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try{
+    let selectedCharacter = await characterInterface.delete(id);
+    res.status(200).send(selectedCharacter);
+  }
+  catch (e) {
     res.status(500).send(e.message);
   }
 });
