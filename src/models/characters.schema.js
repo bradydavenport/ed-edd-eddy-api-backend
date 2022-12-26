@@ -6,6 +6,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    description: {
+      type: DataTypes.STRING,
+    },
     nicknames: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       default: [],
@@ -17,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     portrayer: {
       type: DataTypes.STRING,
     },
-    hairColor: {
+    hair_color: {
       type: DataTypes.STRING,
     },
     friends: {
@@ -27,8 +30,12 @@ module.exports = (sequelize, DataTypes) => {
     enemies: {
       type: DataTypes.ARRAY(DataTypes.STRING),
     },
-    firstAppearance: {
+    first_appearance: {
       type: DataTypes.STRING,
     },
-  });
+    link_to_bio: {
+      type: DataTypes.STRING,
+    },
+  },
+  {timestamps: false});
 };

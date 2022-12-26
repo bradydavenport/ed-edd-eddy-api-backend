@@ -19,21 +19,22 @@ app.use(logger);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-pool.connect((err, client, release) => {
-  if (err) {
-    return console.error(
-      'Error acquiring client', err.stack);
-  }
-  client.query('SELECT NOW()', (err, result) => {
-    release();
-    if (err) {
-      return console.error(
-        'Error executing query', err.stack);
-    }
-    console.log('Connected to Database');
-  });
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
+client.connect();
+
+client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
 
 app.get('/', (req, res) => {
   res.status(200).send('Thanks for visiting the "Ed, Edd, n Eddy" API! The site is under construction');
