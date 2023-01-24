@@ -5,6 +5,7 @@ const app = express();
 require('dotenv').config();
 const logger = require('./middleware/logger');
 const charactersRoute = require('./routes/characters');
+const episodesRoute = require('./routes/episodes');
 const notFound = require('./error-handlers/404');
 const errorHandler = require('./error-handlers/500');
 const PORT = process.env.PORT || 3003;
@@ -46,15 +47,8 @@ app.get('/testdata', (req, res, next) => {
     });
 });
 
-app.get('/characters', (req, res, next) => {
-  pool.query('SELECT * FROM characters')
-    .then(charData => {
-      console.log(charData);
-      res.send(charData.rows);
-    });
-});
-
 app.use(charactersRoute);
+app.use(episodesRoute);
 app.get('*', notFound);
 app.use(errorHandler);
 
