@@ -16,6 +16,10 @@ Creating this API accomplishes a few things for me:
 - I get to provide a resource for anybody needing to bring in API information in a project for proof of life or any other purpose it may serve
 - I get to add a new flavor of API to the internet (at least I think, I Googled for an Ed, Edd, Eddy API and couldn't find anything)
 
+### Feb 2023 Update
+
+Since last update I've still just been populating my local database with the data - handjamming away adding characters and epiodes one-by-one.  I know there's probably a way more efficient way to do it, but hey, I'm on the learning journey, learning things and stuff. Kinda why I'm doing this? Once I get the database populated I well remove the backend code allowing CUD operations (keeping the R, obviously) since the show is discontinued and nothing will change, nor do I want there to be any option to in the app. I did find a method I will try for migrating the database when the time is right.  The eggs are all in that basket at this point.
+
 ### Jan 2023 Update
 
 As you can see I made a scant few commits last month, what I've been working on since is non-code stuff.  When I first started this project, Heroku was still free.  When they started charging, I was looking for other free deployment solutions.  Trying to do that while simultaneously figure out how to populate my db with the information (its not as cut and dry as what I learned in coding bootcamp), has taken up a lot of time and thus led to the ugly empty boxes on my github front page.  I have decided to pay for Heroku and am going to move forward trying to populate my local database and then figure out a way to migrate it into my production database when the time is right.
