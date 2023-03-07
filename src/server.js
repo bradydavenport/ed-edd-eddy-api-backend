@@ -14,7 +14,7 @@ app.use(logger);
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.status(200).send('Thanks for visiting the "Ed, Edd, n Eddy" API! Try adding either "/characters" or "/episodes" to the end of the url in the url bar in your browser.');
+  res.status(200).send('Thanks for visiting the "Ed, Edd, n Eddy" API! Try adding either "/api/characters" or "/api/episodes" to the end of the url in the url bar in your browser.');
 });
 
 app.use(charactersRoute);
