@@ -27,7 +27,6 @@ router.post('/api/characters', async (req, res, next) => {
   const character = req.body;
   try {
     let response = await characterInterface.create(character);
-    console.log('response: ', response);
     res.status(200).send(response);
   } catch (e) {
     res.status(500).send(e.message);
