@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     series_episode_number: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.REAL,
       allowNull: false,
     },
     title_card_url: {
