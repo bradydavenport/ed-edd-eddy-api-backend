@@ -16,6 +16,10 @@ Creating this API accomplishes a few things for me:
 - I get to provide a resource for anybody needing to bring in API information in a project for proof of life or any other purpose it may serve
 - I get to add a new flavor of API to the internet (at least I think, I Googled for an Ed, Edd, Eddy API and couldn't find anything)
 
+### Mar 2023 Update
+
+All that handjamming I did in the local was for nothing because the method I tried for importing the local to Heroku didn't work.  I dug into why I couldn't just CRUD directly to the heroku db and got it fixed, so now I can populate the deployed db from ThunderClient in my editor. Phew, got that part fixed.  I spent way too much time today on a very insignificant problem - the sequelize data type for the episode numbers. Also got that figured out, not exactly how I wanted but in a presentable manner.  Now that I have proof of life for populating the deployed db, I'm going to switch gears to the front end to have a UI and instructions page so real people can really use the API, despite it only having a couple of entries for each of the routes so far - I can get the rest of the data in later. Main goal is to have a working product first, then a working product with all data later.
+
 ### Feb 2023 Update
 
 Since last update I've still just been populating my local database with the data - handjamming away adding characters and epiodes one-by-one.  I know there's probably a way more efficient way to do it, but hey, I'm on the learning journey, learning things and stuff. Kinda why I'm doing this? Once I get the database populated I well remove the backend code allowing CUD operations (keeping the R, obviously) since the show is discontinued and nothing will change, nor do I want there to be any option to in the app. I did find a method I will try for migrating the database when the time is right.  The eggs are all in that basket at this point.
