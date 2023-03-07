@@ -7,11 +7,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     season_episode_number: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10, 1),
       allowNull: false,
     },
     series_episode_number: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10, 1),
       allowNull: false,
     },
     title_card_url: {
